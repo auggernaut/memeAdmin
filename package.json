@@ -1,0 +1,13 @@
+{
+  "name"          : "memeAdmin",
+  "description"   : "Admin tool for memes.",
+  "url"           : "http://github.com/auggernaut/memeAdmin",
+  "keywords"      : ["github", "oauth"],
+  "author"        : "Augustin Bralley",
+  "contributors"  : [],
+  "dependencies"  : ["request","sequelize", "mysql", "express", "ejs"],
+  "engines"       : { "node": "0.6.x" },
+  "lib"           : ".",
+  "main"          : "index",
+  "version"       : "0.1.0"
+}
