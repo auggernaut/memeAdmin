@@ -14,7 +14,7 @@ exports.pull = function (req, res) {
     };
 
 
-    for (var k = 0; k < 5; k++) {
+    for (var k = 5; k < 25; k++) {
         options.url = imgurUrl + "/" + k;
 
 
@@ -46,11 +46,10 @@ exports.pull = function (req, res) {
 
     }
 
-    res.render('index', { message: 'memes pulled.' });
+    res.render('imgur', { message: 'memes pulled.' });
 };
 
 
 exports.info = function (req, res) {
-
-
+    res.render('imgur', { message: '' });
 };

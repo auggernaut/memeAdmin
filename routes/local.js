@@ -3,7 +3,7 @@ var Meme = require('../models/meme');
 exports.list = function (req, res) {
 
     var page = req.query.p;
-    var limit = req.query.l || 20;
+    var limit = req.query.l || 100;
     var offset = (page || 0) * limit;
 
     console.log("limit:" + limit + "   offset: " + offset);

@@ -31,13 +31,18 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/list', local.list);
-/*app.get('/clear', local.clear);*/
+/*
+app.get('/clear', local.clear);
+*/
+
 app.post('/flag', local.flag);
 
 app.get('/parse', parse.info);
 app.get('/parse/push', parse.push);
 
-app.get('/pull', imgur.pull);
+app.get('/imgur', imgur.info);
+app.get('/imgur/pull', imgur.pull);
+
 
 app.listen(app.get('port'), null, function (err) {
     console.log('imgurScraper, at your service: http://localhost:' + app.get('port'));
