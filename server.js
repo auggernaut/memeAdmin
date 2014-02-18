@@ -1,7 +1,9 @@
 var express = require('express'),
     app = express(),
     routes = require('./routes'),
-    meme = require('./routes/meme'),
+    local = require('./routes/local'),
+    parse = require('./routes/parse'),
+    imgur = require('./routes/imgur'),
     http = require('http'),
     path = require('path');
 
@@ -28,11 +30,14 @@ if ('development' == app.get('env')) {
 
 
 app.get('/', routes.index);
-app.get('/list', meme.list);
-app.get('/pull', meme.pull);
-app.get('/clear', meme.clear);
-app.post('/flag', meme.flag);
+app.get('/list', local.list);
+/*app.get('/clear', local.clear);*/
+app.post('/flag', local.flag);
 
+app.get('/parse', parse.info);
+app.get('/parse/push', parse.push);
+
+app.get('/pull', imgur.pull);
 
 app.listen(app.get('port'), null, function (err) {
     console.log('imgurScraper, at your service: http://localhost:' + app.get('port'));

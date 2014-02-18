@@ -9,19 +9,17 @@
 <body>
 
 <ul class="nav nav-tabs">
-    <li class="active"><a href="/">Home</a></li>
+    <li><a href="/">Home</a></li>
     <li><a href="/list">Local</a></li>
-    <li><a href="/parse">Parse</a></li>
+    <li class="active"><a href="/parse">Parse</a></li>
     <li><a href="/imgur">Imgur</a></li>
 </ul>
 
 <div class="container">
-    <h1>Home</h1>
+    <h1>Push to Parse</h1>
 
     <p><%= message %></p>
-<!--    <a href="/clear" class="btn btn-primary btn-lg">Clear</a>-->
-    <a href="/pull" class="btn btn-primary btn-lg">Pull</a>
-    <a href="/list" class="btn btn-primary btn-lg">Review</a>
+    <a href="/parse/push" class="btn btn-primary btn-lg">Push</a>
 </div>
 </body>
 </html>
