@@ -25,7 +25,10 @@ exports.push = function (req, res) {
 
                 for (var k = 0; k < memes.length; k++) {
 
+                    var group = Math.floor(k/5);
+
                     var parseRow = {
+                        group: group,
                         imgurId: memes[k].imgurId,
                         imgur_user: memes[k].imgur_user,
                         title: memes[k].title,
