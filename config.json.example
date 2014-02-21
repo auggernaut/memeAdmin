@@ -1,0 +1,8 @@
+{
+    "imgur_clientId": "IMGUR_CLIENTID",
+    "dbname": "DBNAME",
+    "dbpass": "DBPASS",
+    "dbuser": "DBUSER",
+    "parse_appid": "PARSE_APPID",
+    "parse_restapikey": "PARSE_RESTAPIKEY"
+}
