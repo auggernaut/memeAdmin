@@ -1,5 +1,6 @@
 var Meme = require('../models/meme');
 
+
 exports.list = function (req, res) {
 
     var page = req.query.p;
@@ -44,9 +45,9 @@ exports.list = function (req, res) {
 };
 
 
-/*exports.clear = function (req, res) {
+exports.clear = function (req, res) {
 
-    sequelize
+    Meme.sequelize
         .sync({ force: true })
         .complete(function (err) {
             if (!!err) {
@@ -56,7 +57,7 @@ exports.list = function (req, res) {
             }
             res.render('index', { message: 'db cleared.' });
         })
-};*/
+};
 
 
 exports.flag = function (req, res) {

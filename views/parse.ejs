@@ -3,8 +3,11 @@
 <head>
     <title>Meme Manager</title>
     <link rel='stylesheet' href='/css/style.css'/>
+    <script src="/js/masonry.pkgd.min.js"></script>
+    <script src="/js/jquery-1.11.0.min.js"></script>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="/js/imagesloaded.pkgd.min.js"></script>
 </head>
 <body>
 
@@ -20,6 +23,15 @@
 
     <p><%= message %></p>
     <a href="/parse/push" class="btn btn-primary btn-lg">Push</a>
+    <a href="/parse/pull" class="btn btn-primary btn-lg">Pull</a>
+
+    <div id="memes" class="js-masonry"
+         data-masonry-options='{ "columnWidth": 200, "itemSelector": ".item" }'>
+    <% memes && memes.forEach(function(el, index) { %>
+    <div class="item"><img src="<%= el.link %>" class="meme" id="<%= el.imgurId %>"/></div>
+    <% }) %>
+        </div>
 </div>
+<script src="/js/main.js"></script>
 </body>
 </html>

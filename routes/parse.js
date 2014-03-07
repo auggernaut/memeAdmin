@@ -1,15 +1,9 @@
-var Parse = require('node-parse-api').Parse,
-    config = require('../config'),
-    Meme = require('../models/meme');
-
-var APP_ID = config.parse_appid;
-var RESTAPI_KEY = config.parse_restapikey;
-
-var app = new Parse(APP_ID, RESTAPI_KEY);
+var Meme = require('../models/meme'),
+    Squishle = require('../models/squishle');
 
 
 exports.info = function (req, res) {
-    res.render('parse', { message: '' });
+    res.render('parse', { message: '', memes: null  });
 }
 
 exports.push = function (req, res) {
@@ -25,7 +19,7 @@ exports.push = function (req, res) {
 
                 for (var k = 0; k < memes.length; k++) {
 
-                    var group = Math.floor(k/5);
+                    var group = Math.floor(k/3);
 
                     var parseRow = {
                         group: group,
@@ -35,7 +29,8 @@ exports.push = function (req, res) {
                         subtype: memes[k].subtype,
                         link: memes[k].link
                     }
-                    app.insert("Meme", parseRow, function (err, response) {
+
+                    Squishle.insert("Meme", parseRow, function (err, response) {
                         if (!!err) {
                             console.log(err)
 
@@ -51,4 +46,16 @@ exports.push = function (req, res) {
         });
 
     res.render('parse', { message: 'Done'});
+}
+
+exports.pull = function (req, res) {
+
+    var min = 0;
+    var max = 200;
+    var random = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    Squishle.findMany('Meme', { group: random }, function (err, response) {
+        console.log(response);
+        res.render('parse', { message: 'pulled', memes: response.results });
+    });
 }

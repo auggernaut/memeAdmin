@@ -30,3 +30,4 @@ var Meme = sequelize.define('Meme', {
 
 
 module.exports = Meme;
+exports.sequalize = sequelize;

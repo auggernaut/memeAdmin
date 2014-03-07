@@ -30,15 +30,14 @@ if ('development' == app.get('env')) {
 
 
 app.get('/', routes.index);
-app.get('/list', local.list);
-/*
-app.get('/clear', local.clear);
-*/
 
+app.get('/list', local.list);
+app.get('/clear', local.clear);
 app.post('/flag', local.flag);
 
 app.get('/parse', parse.info);
 app.get('/parse/push', parse.push);
+app.get('/parse/pull', parse.pull);
 
 app.get('/imgur', imgur.info);
 app.get('/imgur/pull', imgur.pull);
